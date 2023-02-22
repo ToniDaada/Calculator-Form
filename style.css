@@ -1,0 +1,340 @@
+/* General designs for the website to adhere to */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    transition: all 0.5s ease;
+    font-family: "Google Sans Regular";
+}
+body {
+    font-family: sans-serif;
+    background-image: linear-gradient(to bottom right, rgba(79, 51, 176, 1.0), rgba(210, 53, 165));
+}
+
+/* Specific designs for the form to adhere to */
+.special {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+a {
+    text-decoration: none;
+}
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+
+.calculator {
+    position: relative;
+    height: auto;
+    width: auto;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 0 0 30px #000;
+}
+
+/* Specific designs for the table to adhere to */
+.group {
+    height: auto;
+    width: auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #000;
+    color: #fefefe;
+    background: #11101b;
+    margin: 10px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+.content-table {
+    border-collapse: collapse;
+    margin: 10px 10px 10px;
+    font-size: 0.6cm;
+}
+.content-table thead tr {
+    text-align: center;
+    font-weight: bold;
+}
+.content-table tbody tr {
+    border: #fefefe 1px solid;
+}
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #fefefe;
+}
+.theme-toggler {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
+}
+.theme-toggler.active {
+    color: #333;
+}
+.theme-toggler.active::before {
+    background-color: #fff;
+}
+.theme-toggler::before {
+    content: '';
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #333;
+    z-index: -1;
+}
+#display {
+    margin: 0 10px;
+    height: 150px;
+    width: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 30px;
+    margin-bottom: 20px;
+    overflow-x: scroll;
+}
+#display::-webkit-scrollbar {
+    display: block;
+    height: 3px;
+}
+button {
+    height: 70px;
+    width: 62px;
+    border: 0;
+    border-radius: 30px;
+    margin: 5px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+button:hover {
+    transform: scale(1.3);
+}
+button#equal {
+    height: 150px;
+}
+
+/* Calculator light theme */
+.calculator {
+    background-color: #fff;
+}
+.calculator #display {
+    color: #0a1e23;
+}
+.calculator button#clear {
+    background-color: #ffd5d8;
+    color: #fc4552;
+}
+.calculator button.btn-number {
+    background-color: #c3eaff;
+    color: #000000;
+}
+.calculator button.btn-operator {
+    background-color: #ffd0fb;
+    color: #f967f3;
+}
+.calculator button.btn-equal {
+    background-color: #adf9e7;
+    color: #000;
+}
+
+/* Calculator dark theme */
+.calculator.dark {
+    background-color: #071115;
+}
+.calculator.dark #display {
+    color: #f8fafb;
+}
+.calculator.dark button#clear {
+    background-color: #2d191e;
+    color: #bd3740;
+}
+.calculator.dark button.btn-number {
+    background-color: #1b2f38;
+    color: #f8fafb;
+}
+.calculator.dark button.btn-operator {
+    background-color: #2e1f39;
+    color: #aa00a4;
+}
+.calculator.dark button.btn-equal {
+    background-color: #223323;
+    color: #ffffff;
+}
+
+/* General designs for the navbar to adhere to */
+header {
+    width: 100%;
+    height: 80px;
+    background: #11101b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fefefe;
+}
+.nav-bar ul {
+    display: flex;
+}
+.nav-bar ul li a {
+    display: block;
+    color: #fefefe;
+    font-size: 20px;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 0 5px;
+}
+.nav-bar ul li a:hover {
+    color: #11101b;
+    background: #fefefe;
+}
+.nav-bar ul li a.active {
+    color: #11101b;
+    background: #fefefe;
+}
+
+/* General designs pertaining to the size of the client screen */
+@media only screen and (max-width: 1320px) {
+    header {
+        padding: 0 50px;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    header {
+        padding: 0 30px;
+    }
+}
+@media only screen and (max-width: 900px) {
+    /* Specific designs for the navbar on a phone */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background: #fefefe;
+        margin: 6px 0;
+    }
+
+    .nav-bar {
+        height: 0px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: #11101b;
+        transition: 0.5s;
+        overflow: hidden;
+    }
+
+    .nav-bar.active {
+        height: 450px;
+    }
+
+    .nav-bar ul {
+        display: block;
+        width: fit-content;
+        margin: 80px auto 0 auto;
+        text-align: center;
+        transition: 0.2s;
+        opacity: 0;
+
+    }
+
+    .nav-bar.active ul {
+        opacity: 1;
+    }
+
+    .nav-bar ul li a {
+        margin-bottom: 12px;
+    }
+
+}
+
+/* Specific designs for the website form to adhere to */
+.wrapper {
+    position: relative;
+    max-width: 470px;
+    width: 100%;
+    border-radius: 12px;
+    padding: 20px
+        30px
+        120px;
+    background: #11101b;
+    box-shadow: 0 0 30px #000;
+    overflow: hidden;
+}
+.forms
+    header {
+        font-size: 50px;
+        text-align: left;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .wrapper
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 40px;
+    }
+    form
+    input {
+        height: 60px;
+        outline: none;
+        border: none;
+        padding: 0
+        15px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #11101b;
+        border-radius: 8px;
+        background-color: #fefefe;
+    }
+    form a {
+        color: #333;
+        text-decoration: none;
+    }
+    form
+    a:hover {
+        text-decoration: underline;
+    }
+    form
+    input[type="submit"] {
+        margin-top: 15px;
+        padding: none;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        background-color: #11101b;
+        color: #fefefe;
+        border: #fefefe 1px solid;
+    }
+    form
+    input[type="submit"]:hover {
+        background-color: #fefefe;
+        color: #11101b;
+        border: #11101b 1px solid;
+    }
+    .one::placeholder {
+        color: #11101b;
+        opacity: 1;
+    }
